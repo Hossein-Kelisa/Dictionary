@@ -54,3 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(results);
     BODY.appendChild(container)
 });
+
+// Create background div
+const backgroundDiv = document.createElement('div');
+backgroundDiv.classList.add('background');
+document.body.appendChild(backgroundDiv);
