@@ -5,9 +5,8 @@ import {
   BUTTON_TEXT,
   MEANING_LABEL_TEXT,
   SYNONYM_LABEL_TEXT,
-  DEFAULT_MEANING,
-  DEFAULT_SYNONYM,
 } from "./constants.js";
+import { fetchWordData } from "./pages/main.js";
 document.addEventListener("DOMContentLoaded", () => {
   // Create title
   const title = document.createElement("h1");
@@ -69,34 +68,3 @@ document.addEventListener("DOMContentLoaded", () => {
 const backgroundDiv = document.createElement("div");
 backgroundDiv.classList.add("background");
 document.body.appendChild(backgroundDiv);
-
-// Function to fetch word data from API
-const fetchWordData = async (word) => {
-  try {
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-    );
-    if (!response.ok) {
-      throw new Error("Hossein's Dictionary couldn't find the word.");
-    }
-    const data = await response.json();
-
-    // Select meaningSpan and synonymSpan from DOM
-    const meaningSpan = document.getElementById("meaning");
-    const synonymSpan = document.getElementById("synonym");
-
-    // Extract meaning
-    const firstMeaning =
-      data[0]?.meanings[0]?.definitions[0]?.definition || DEFAULT_MEANING; //value of definition or default
-    meaningSpan.textContent = firstMeaning;
-
-    // Extract synonyms
-    const synonyms = data[0]?.meanings[0]?.synonyms || []; //or empty array
-    synonymSpan.textContent =
-      synonyms.length > 0 ? synonyms.join(", ") : DEFAULT_SYNONYM; //conditional check for array
-  } catch (error) {
-    console.error(error.message);
-    document.getElementById("meaning").textContent = error.message; //what shows in the page, (default or message)
-    document.getElementById("synonym").textContent = error.message;
-  }
-};
