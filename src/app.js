@@ -62,6 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchWordData(word);
     }
   });
+  // Event listener for "Enter" key press
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); 
+        button.click(); 
+    }
+});
 });
 
 // Create background div
