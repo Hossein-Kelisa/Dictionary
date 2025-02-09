@@ -1,4 +1,5 @@
-// main.js   fetching Api and error handling
+// src/pages/main.js (fetching data from API and Error handling)
+
 import {
   API_URL,
   ERROR_MESSAGE,
@@ -6,36 +7,31 @@ import {
   DEFAULT_SYNONYM,
 } from "../constants.js";
 
-const loadingElement = document.getElementById("loading");
-
 export const fetchWordData = async (word) => {
+  const loadingElement = document.getElementById("loading");
+  const meaningSpan = document.getElementById("meaning");
+  const synonymSpan = document.getElementById("synonym");
+
   try {
     loadingElement.style.display = "block";
+    meaningSpan.textContent = "";
+    synonymSpan.textContent = "";
 
     const response = await fetch(`${API_URL}${word}`);
-    if (!response.ok) {
-      throw new Error(ERROR_MESSAGE);
-    }
-    const data = await response.json();
+    if (!response.ok) throw new Error(ERROR_MESSAGE);
 
+    const data = await response.json();
     loadingElement.style.display = "none";
 
-    // Select meaningSpan and synonymSpan from DOM
-    const meaningSpan = document.getElementById("meaning");
-    const synonymSpan = document.getElementById("synonym");
+    meaningSpan.textContent =
+      data[0]?.meanings[0]?.definitions[0]?.definition || DEFAULT_MEANING;
 
-    // Extract meaning
-    const firstMeaning =
-      data[0]?.meanings[0]?.definitions[0]?.definition || DEFAULT_MEANING; //value of definition or default
-    meaningSpan.textContent = firstMeaning;
-
-    // Extract synonyms
-    const synonyms = data[0]?.meanings[0]?.synonyms || []; //or empty array
+    const synonyms = data[0]?.meanings[0]?.synonyms || [];
     synonymSpan.textContent =
-      synonyms.length > 0 ? synonyms.join(", ") : DEFAULT_SYNONYM; //conditional check for array
+      synonyms.length > 0 ? synonyms.join(", ") : DEFAULT_SYNONYM;
   } catch (error) {
-    loadingElement.style.display = "none"; 
-    document.getElementById("meaning").textContent = error.message;
-    document.getElementById("synonym").textContent = error.message; // Call the error handler function from data.js
+    loadingElement.style.display = "none";
+    meaningSpan.textContent = error.message;
+    synonymSpan.textContent = "";
   }
 };
