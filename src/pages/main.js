@@ -6,13 +6,19 @@ import {
   DEFAULT_SYNONYM,
 } from "../constants.js";
 
+const loadingElement = document.getElementById("loading");
+
 export const fetchWordData = async (word) => {
   try {
+    loadingElement.style.display = "block";
+
     const response = await fetch(`${API_URL}${word}`);
     if (!response.ok) {
       throw new Error(ERROR_MESSAGE);
     }
     const data = await response.json();
+
+    loadingElement.style.display = "none";
 
     // Select meaningSpan and synonymSpan from DOM
     const meaningSpan = document.getElementById("meaning");
@@ -28,6 +34,7 @@ export const fetchWordData = async (word) => {
     synonymSpan.textContent =
       synonyms.length > 0 ? synonyms.join(", ") : DEFAULT_SYNONYM; //conditional check for array
   } catch (error) {
+    loadingElement.style.display = "none"; 
     document.getElementById("meaning").textContent = error.message;
     document.getElementById("synonym").textContent = error.message; // Call the error handler function from data.js
   }
