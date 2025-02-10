@@ -22,7 +22,9 @@ export const fetchWordData = async (word) => {
 
     const data = await response.json();
     console.log(data);
+    setTimeout(() => {
     loadingElement.style.display = "none";
+    }, 500); // Spinner stays visible a bit longer
 
     meaningSpan.textContent =
       data[0]?.meanings[0]?.definitions[0]?.definition || DEFAULT_MEANING;
@@ -32,7 +34,9 @@ export const fetchWordData = async (word) => {
     synonymSpan.textContent =
       synonyms.length > 0 ? synonyms.join(", ") : DEFAULT_SYNONYM;
   } catch (error) {
+    setTimeout(() => {
     loadingElement.style.display = "none";
+  }, 500); // Also delay hiding the spinner on errors
     meaningSpan.textContent = error.message;
     synonymSpan.textContent = error.message;
   }
