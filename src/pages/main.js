@@ -21,17 +21,19 @@ export const fetchWordData = async (word) => {
     if (!response.ok) throw new Error(ERROR_MESSAGE);
 
     const data = await response.json();
+    console.log(data);
     loadingElement.style.display = "none";
 
     meaningSpan.textContent =
       data[0]?.meanings[0]?.definitions[0]?.definition || DEFAULT_MEANING;
 
     const synonyms = data[0]?.meanings[0]?.synonyms || [];
+    console.log(synonyms);
     synonymSpan.textContent =
       synonyms.length > 0 ? synonyms.join(", ") : DEFAULT_SYNONYM;
   } catch (error) {
     loadingElement.style.display = "none";
     meaningSpan.textContent = error.message;
-    synonymSpan.textContent = "";
+    synonymSpan.textContent = error.message;
   }
 };
