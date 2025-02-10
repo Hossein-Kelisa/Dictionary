@@ -59,7 +59,7 @@ h1:hover {
     /* background-color: rgb(240, 229, 229); */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     width: 35%;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@ h1:hover {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: 100%;
     display: flex;
     flex-direction: row; /* Make input and button side by side */
@@ -122,7 +122,7 @@ button:active {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
     text-align: left; /* Align text to the left */
 }
@@ -153,4 +153,24 @@ span {
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+  .dark-mode {
+    background-color: #000000;
+    color: rgb(123, 119, 119);
+  }
+  
+  .dark-mode input, .dark-mode button {
+    background-color: #333;
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .dark-mode .container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  .dark-mode .results , .dark-mode .box {
+    background-color: #98becd;
+  }
+  .dark-mode .background {
+    opacity: 0.5;
   }

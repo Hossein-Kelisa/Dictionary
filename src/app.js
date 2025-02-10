@@ -28,3 +28,26 @@ document.addEventListener("DOMContentLoaded", () => {
 const backgroundDiv = document.createElement("div");
 backgroundDiv.classList.add("background");
 document.body.appendChild(backgroundDiv);
+
+// Create dark mode button
+const darkModeButton = document.createElement("button");
+darkModeButton.textContent = "🌙 Dark Mode";
+darkModeButton.id = "dark-mode-toggle";
+BODY.appendChild(darkModeButton);
+
+// Check localStorage for saved mode
+if (localStorage.getItem("darkMode") === "enabled") {
+  document.body.classList.add("dark-mode");
+}
+
+// Toggle dark mode on button click
+darkModeButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  // Save preference in localStorage
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("darkMode", "enabled");
+  } else {
+    localStorage.setItem("darkMode", "disabled");
+  }
+});
