@@ -1,176 +1,202 @@
-
 /* Body Styling */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  position: relative;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 /* Background Image */
 .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/public/images/bk.jpg') no-repeat center center/cover;
-    z-index: -1;
-    opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/public/images/bk.jpg") no-repeat center center/cover;
+  z-index: -1;
+  opacity: 0.9;
 }
 
 /* Title Styling */
 h1 {
-    color: #000000;
-    font-size: 3rem;
-    margin: 20px 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    position: absolute; 
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%); 
-    margin-bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+  color: #000000;
+  font-size: 4vw;
+  margin: 20px 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 h1:hover {
-    color: #ffffff;
-    transition: color 0.8s;
-    cursor: pointer;
+  color: #ffffff;
+  transition: color 0.8s;
+  cursor: pointer;
 }
 
 /* Container for Input and Button */
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    top: 80px;
-    width: 80%;
-    max-width: 600px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 80px;
+  width: 90%;
+  max-width: 600px;
 }
 .container {
-    /* background-color: rgb(240, 229, 229); */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+  /* background-color: rgb(240, 229, 229); */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 /* White Box for Input and Button */
 .box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    display: flex;
-    flex-direction: row; /* Make input and button side by side */
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px; /* Space between input and button */
-    margin-bottom: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  flex-direction: row; /* Make input and button side by side */
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px; /* Space between input and button */
+  margin-bottom: 20px;
 }
 
 /* Input Field Styling */
 input {
-    padding: 10px;
-    font-size: 1rem;
-    width: 70%;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  width: 70%;
+  border: 2px solid #ddd;
+  border-radius: 5px;
 }
 
 /* Button Styling */
 button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #38b0df;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #38b0df;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 /* Button Hover Effect */
 button:hover {
-    background-color: #0d4aa7;
-    transform: scale(1.1);
-    transition: transform 0.2s;
+  background-color: #0d4aa7;
+  transform: scale(1.1);
+  transition: transform 0.2s;
 }
 button:active {
-    transform: scale(0.9);
-    transition: transform 0.2s;
-    color: #02160d;
+  transform: scale(0.9);
+  transition: transform 0.2s;
+  color: #02160d;
 }
 
 /* Results Section (Meaning, Synonym, etc.) */
 .results {
-    width: 100%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin-top: 20px;
-    text-align: left; /* Align text to the left */
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  text-align: left; /* Align text to the left */
 }
 
 /* Line Styling for Meaning, Synonym */
 .results div {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 /* Label Styling */
 label {
-    font-weight: bold;
-    margin-right: 10px;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 /* Result Text Styling */
 span {
-    color: #333;
+  color: #333;
 }
+#loading {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
 .spinner {
-    border: 4px solid #f3f3f3; 
-    border-top: 4px solid #3498db; 
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 2s linear infinite;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #0a1068;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: absolute;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
   }
-  .dark-mode {
-    background-color: #000000;
-    color: rgb(123, 119, 119);
-  }
-  
-  .dark-mode input, .dark-mode button {
-    background-color: #333;
-    color: white;
-    border: 1px solid white;
-  }
-  
-  .dark-mode .container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
-  }
-  .dark-mode .results , .dark-mode .box {
-    background-color: #98becd;
-  }
-  .dark-mode .background {
-    opacity: 0.5;
-  }
+}
+.dark-mode {
+  background-color: #000000;
+  color: rgb(123, 119, 119);
+}
+
+.dark-mode input,
+.dark-mode button {
+  background-color: #333;
+  color: white;
+  border: 1px solid white;
+}
+
+.dark-mode .container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+.dark-mode .results,
+.dark-mode .box {
+  background-color: #98becd;
+}
+.dark-mode .background {
+  opacity: 0.5;
+  transition: opacity 0.9s;
+}
+#dark-mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #51565e;
+  color: white;
+  border-radius: 5px;
+}
